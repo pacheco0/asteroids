@@ -10,28 +10,35 @@ def main():
 	print("Screen height: " + str(SCREEN_HEIGHT))
 	fps = pygame.time.Clock()
 	dt = 0
-	# Calculate the initial player position
+	# Calcula la posicion inicial
 	x = SCREEN_WIDTH / 2
 	y = SCREEN_HEIGHT / 2
 
-	# Instantiate the player
+	# Coloca al jugador
 	player = Player(x, y)
+	# Crea grupos
+	updatable = pygame.sprite.Group()
+	drawable = pygame.sprite.Group()
+
+	# Agrega el player a los grupos
+	updatable.add(player)
+	drawable.add(player)
 
 	while True:
-		# First: Handle timing and updates
+		# Tiempos y actualizaciones
 		dt = fps.tick(60) / 1000
-		player.update(dt)
+		updatable.update(dt)
 
-		# Second: Handle events
+		# Eventos (cerrar el juego)
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				return
 
-		# Third: Draw everything
+		# Dibuja
 		screen.fill((0, 0, 0))
-		player.draw(screen)
+		drawable.draw(screen)
     
-		# Fourth: Show what we drew
+		# Muestra lo que dibujo
 		pygame.display.flip()
 if __name__ == "__main__":
 	main()
