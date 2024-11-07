@@ -36,7 +36,8 @@ def main():
 
 		# Dibuja
 		screen.fill((0, 0, 0))
-		drawable.draw(screen)
+		for sprite in drawable:
+			sprite.draw(screen)
     
 		# Muestra lo que dibujo
 		pygame.display.flip()
