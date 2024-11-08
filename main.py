@@ -33,21 +33,25 @@ def main():
 	asteroid_field = AsteroidField()
 
 	while True:
-		# Tiempos y actualizaciones
-		dt = fps.tick(60) / 1000
-		updatable.update(dt)
+		try:
+			# Tiempos y actualizaciones
+			dt = fps.tick(60) / 1000
+			updatable.update(dt)
+              
+			# Eventos (cerrar el juego)
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					return
 
-		# Eventos (cerrar el juego)
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				return
-
-		# Dibuja
-		screen.fill((0, 0, 0))
-		for sprite in drawable:
-			sprite.draw(screen)
+        	# Dibuja
+			screen.fill((0, 0, 0))
+			for sprite in drawable:
+				sprite.draw(screen)
     
-		# Muestra lo que dibujo
-		pygame.display.flip()
+        	# Muestra lo que dibujo
+			pygame.display.flip()
+		except Exception as e:
+			print(f"Error: {e}")
+			return
 if __name__ == "__main__":
 	main()
