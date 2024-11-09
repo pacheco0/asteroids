@@ -1,4 +1,5 @@
 import pygame
+import sys
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from constants import *
@@ -37,6 +38,12 @@ def main():
 			# Tiempos y actualizaciones
 			dt = fps.tick(60) / 1000
 			updatable.update(dt)
+			
+        	# Colisiones
+			for asteroid in asteroids:
+				if player.collision(asteroid):
+					print("Game over!")
+					sys.exit()
               
 			# Eventos (cerrar el juego)
 			for event in pygame.event.get():

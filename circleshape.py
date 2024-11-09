@@ -24,11 +24,10 @@ class CircleShape(pygame.sprite.Sprite):
         distance = self.position.distance_to(shape2.position)
 
         # Calcular suma de radios
-        radio_sum = self.radius + shape2.radius
+        radius_sum = self.radius + shape2.radius
 
         # Comparar con distacia para ver si chocan
-
-        if distance <= radio_sum:
+        if distance <= radius_sum:
             return True
         else:
             return False 
