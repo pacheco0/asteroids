@@ -15,3 +15,12 @@ class Asteroid(CircleShape):
         self.position += self.velocity * dt
         self.x = self.position.x
         self.y = self.position.y
+    
+    @property
+    def rect(self):
+        return pygame.Rect(
+            self.position.x - self.radius,
+            self.position.y - self.radius,
+            self.radius * 2,
+            self.radius * 2
+        )
