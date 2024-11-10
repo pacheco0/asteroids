@@ -44,11 +44,8 @@ def main():
 			
         	# Colisiones
 			for asteroid in asteroids:
-				print(f"Asteroid rect: {asteroid.rect}")
 				for bullet in shots:
-					print(f"Bullet rect: {bullet.rect}")
 					if asteroid.rect.colliderect(bullet.rect):
-						print("Colision detected")
 						asteroid.kill()
 						bullet.kill() 
 				if player.collision(asteroid):
