@@ -8,7 +8,7 @@ class Shot(CircleShape):
         self.velocity = pygame.Vector2() # Crea un vector de velocidad
 
     def draw(self, screen):
-        pygame.draw.circle(screen, pygame.Color("red"), self.position, self.radius)
+        pygame.draw.circle(screen, pygame.Color("light orange"), self.position, self.radius)
     
     def update(self, dt):
         self.position += self.velocity * dt
