@@ -28,10 +28,10 @@ class Asteroid(CircleShape):
         new_velocity2 = self.velocity.rotate(-random_angle)
         new_radius = self.radius - ASTEROID_MIN_RADIUS
 
-        asteroid1 = Asteroid(self.x, self.y, new_radius)
+        asteroid1 = Asteroid(self.rect.centerx, self.rect.centery, new_radius)
         asteroid1.velocity = new_velocity1 * 1.2
 
-        asteroid2 = Asteroid(self.x, self.y, new_radius)
+        asteroid2 = Asteroid(self.rect.centerx, self.rect.centery, new_radius)
         asteroid2.velocity = new_velocity2 * 1.2
     @property
     def rect(self):
